@@ -1,3 +1,3 @@
 generationNum = 20 # number of generations
-yellowFishDeathChance = 1 # chance for yellow fish to die out of 10
-mutationChance = 0 # currently unused
+yellowFishDeathChance = 10 # chance for yellow fish to die out of 100
+mutationChance = 1 # chance for allele to mutate

@@ -30,11 +30,19 @@ if __name__ == "__main__":
 
         # remove 10% of yellow fish
         for i in population:
-            if i.phenotype == "y" and random.randint(1,10) <= config.yellowFishDeathChance: population.remove(i)
+            if i.phenotype == "y" and random.randint(1,100) <= config.yellowFishDeathChance: population.remove(i)
 
         # erase old gene pool and add all alleles from current population yellows removed
         genePoolCurrent.clear()
         for i in population:
-            genePoolCurrent.append(i.allele1)
+            # if allele randomly mutates, append a random allele to the gene pool. otherwise, append the alleles of each fish
+            if random.randint(1,100) <= config.mutationChance:
+                genePoolCurrent.append(random.choice(["g","r","y"]))
+            else:
+                genePoolCurrent.append(i.allele1)
             if i != len(population)-1: 
-                genePoolCurrent.append(i.allele2)
+                if random.randint(1,100) <= config.mutationChance:
+                    genePoolCurrent.append(random.choice(["g","r","y"]))
+                else:
+                    genePoolCurrent.append(i.allele2)
+                    
