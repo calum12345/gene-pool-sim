@@ -6,7 +6,7 @@ green alleles are dominant to all alleles
 
 yellow and red are codominant and a fish that has both yellow and red alleles is orange
 
-all yellow fish have a 90% chance of dying at end of generation
+all yellow fish have a 10% chance of dying at end of generation
 
 ## plans for future
 
