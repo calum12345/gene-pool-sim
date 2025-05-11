@@ -3,27 +3,22 @@ import random
 import sys
 from fish import Fish
 import config
+import genepool
 
 if __name__ == "__main__":
     # create 2000 random alleles, green dominant, and red and yellow codominant
-    genePoolCurrent = [random.choice(["g","r","y"]) for i in range(2000)]
-    genePoolHistory = (genePoolCurrent,) # temporary fix for before i loop it
+    genePoolCurrent = genepool.genNewPool(2000)
+    genePoolHistory = (genePoolCurrent,)
     for i in range (config.generationNum):
         temp = (genePoolCurrent,)
         genePoolHistory += temp
 
-        population = []
+        population = genepool.genPopulation(genePoolCurrent)
 
-        # create population of fish based on gene pool
-        for i in range(0,len(genePoolCurrent)+1,2):
-            fish = Fish(genePoolCurrent[i],genePoolCurrent[i+1])
-            population.append(fish)
-            if i >= len(genePoolCurrent)-2: break
-
-        green_count = sum(1 for f in population if f.phenotype == 'g')
-        orange_count = sum(1 for f in population if f.phenotype == 'o')
-        red_count = sum(1 for f in population if f.phenotype == 'r')
-        yellow_count = sum(1 for f in population if f.phenotype == 'y')
+        green_count = genepool.getCount(population,"g")
+        orange_count = genepool.getCount(population,"o")
+        red_count = genepool.getCount(population,"r")
+        yellow_count = genepool.getCount(population,"y")
 
         print(f"green: {green_count}\norange: {orange_count}\nred: {red_count}\nyellow: {yellow_count}\n")
 
@@ -45,4 +40,3 @@ if __name__ == "__main__":
                     genePoolCurrent.append(random.choice(["g","r","y"]))
                 else:
                     genePoolCurrent.append(i.allele2)
-                    
