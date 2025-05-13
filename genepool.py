@@ -24,3 +24,13 @@ def genPopulation(pool: list[str]) -> list:
 
 def getCount(population: list[Fish], phenotype: str) -> int:
     return sum(1 for f in population if f.phenotype == phenotype)
+
+def killPhenotype(population: list[Fish], phenotype: str) -> list[Fish]:
+    """
+    returns the population argument sans all fish with the given phenotype
+    """
+    population2 = population.copy() # it works just dont question it
+    for i in population2:
+        if i.phenotype == phenotype:
+            population2.remove(i)
+    return population2

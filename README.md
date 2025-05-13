@@ -8,8 +8,11 @@ yellow and red are codominant and a fish that has both yellow and red alleles is
 
 all yellow fish have a 10% chance of dying at end of generation
 
+1% chance of alleles mutating
+
+optional green fish death event
+
 ## plans for future
 
 - add csv compatibility
-- add tests
-- add *the environmental disaster*
+- get a good grade from this
