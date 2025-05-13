@@ -3,12 +3,13 @@ import random
 import sys
 from fish import Fish
 import genepool
+import config
 
 if __name__ == "__main__":
     # create 2000 random alleles, green dominant, and red and yellow codominant
     genePoolCurrent = genepool.genNewPool(2000)
     genePoolHistory = (genePoolCurrent,)
-    for i in range (20):
+    for generation in range(config.generationNum):
         temp = (genePoolCurrent,)
         genePoolHistory += temp
 
@@ -24,8 +25,11 @@ if __name__ == "__main__":
 
         # remove 10% of yellow fish
         for i in population:
-
             if i.phenotype == "y" and random.randint(1,100) == 1: population.remove(i)
+        
+        # kill the green fish
+        if generation == config.greenFishDeathGen:
+            population = genepool.killPhenotype(population, 'g')
 
         # erase old gene pool and add all alleles from current population yellows removed
         genePoolCurrent.clear()
