@@ -10,15 +10,12 @@ def genNewPool(length: int) -> list[str]:
 
 
 def genPopulation(pool: list[str]) -> list:
-    """
-    create new population based on gene pool
-
-    will probably break if you input a genepool with an odd number of alleles so dont do that please :)
-    """
+    if len(pool) % 2 != 0: raise ValueError
     population = []
     for i in range(0,len(pool)+1,2):
         fish = Fish(pool[i],pool[i+1])
         population.append(fish)
+
         if i >= len(pool)-2: break
     return population
 
