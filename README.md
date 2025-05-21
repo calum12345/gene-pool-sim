@@ -1,5 +1,7 @@
 # readme
 
+[![codecov](https://codecov.io/gh/calum12345/gene-pool-sim/graph/badge.svg?token=3I7KXYJNBA)](https://codecov.io/gh/calum12345/gene-pool-sim)
+
 so i had a science project where i had to pick out some genes and stuff for fish and this is a larger scale simulation of that
 
 green alleles are dominant to all alleles
