@@ -175,3 +175,6 @@ cython_debug/
 
 # VS code config
 .vscode
+
+# coverage or smth idk
+*.lcov
